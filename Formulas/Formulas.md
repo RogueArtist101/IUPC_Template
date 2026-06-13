@@ -19,14 +19,14 @@ When n = m and k = 0, catalan number.
 
 - Eulerian Numbers $A(n,k)$: Number of permutations of n in which exactly k elements are greater than the previous element.
 
-$A(n, k) = (n-k)\,A(n-1, k-1) + (k+1)\,A(n-1, k)$; A(0,0)=1,  A(n,k)=0  for k<0 or  $k\ge n$ 
+$A(n, k) = (n-k) A(n-1, k-1) + (k+1) A(n-1, k)$; A(0,0)=1,  A(n,k)=0  for k<0 or  $k\ge n$ 
 
 $A(n, k) = \sum_{i=0}^{k+1} (-1)^i \times ^{n+1}C_{i} (k+1-i)^n$
 
 ## Sum Formulas (Pascal Triangle)
 
 - $\sum_{i=1}^{n} i^{k}
-= \frac{1}{k+1} \sum_{j=0}^{k} (-1)^j \times \  ^{k+1}C_{j} B_j\, n^{\,k+1-j}$
+= \frac{1}{k+1} \sum_{j=0}^{k} (-1)^j \times ^{k+1}C_{j} B_j  n^{ k+1-j}$
 
 - $B_m = -\frac{1}{m+1} \sum_{k=0}^{m-1} \times ^{m+1}C_{k} B_k.$
 
@@ -36,17 +36,17 @@ $A(n, k) = \sum_{i=0}^{k+1} (-1)^i \times ^{n+1}C_{i} (k+1-i)^n$
 - $\sum_{i=1}^{n} i^5
 = \frac{n^2 (n+1)^2 (2n^2+2n-1)}{12}$
 
-- $\sum_{i=0}^{k} (-1)^i \ ^nC_i= (-1)^k \ ^{n-1}C_{k}$
+- $\sum_{i=0}^{k} (-1)^i ^nC_i= (-1)^k \ ^{n-1}C_{k}$
 
-- $\sum_{i=0}^{n}\  ^iC_r=  ^{n+1}C_{r+1}$
+- $\sum_{i=0}^{n}^iC_r=  ^{n+1}C_{r+1}$
 
 - $\sum_{i=0}^n ({^{n}C_{i}})^2= ^{2n}C_n$
 
 - $\sum_{i=0}^n(^nC_i)(^nC_{n-i})=^{2n}C_n$
 
-- $\sum_{i=0}^n i\times ^nC_i \times a^k \times b^{n-k} = na\,(a+b)^{n-1}$
+- $\sum_{i=0}^n i\times ^nC_i \times a^k \times b^{n-k} = na (a+b)^{n-1}$
 
-- $\sum_{i=0}^\infty i^k\times ^nC_i \times a^i \times b^{n-i} = \sum_{j=0}^{k} S(k,j)\times ^nP_j\times a^j\,(a+b)^{n-j}$
+- $\sum_{i=0}^\infty i^k\times ^nC_i \times a^i \times b^{n-i} = \sum_{j=0}^{k} S(k,j)\times ^nP_j\times a^j (a+b)^{n-j}$
 
 - $\sum_{i=0}^\infty {^{i}C_{k}}\times p^k \times r^{i-k} \ = \frac{p^k}{(1-r)^{k+1}}$
 
@@ -73,29 +73,24 @@ $A(n, k) = \sum_{i=0}^{k+1} (-1)^i \times ^{n+1}C_{i} (k+1-i)^n$
 
 ## Inversions
 
-- If $ P(n)=\sum_{k=0}^{n} \ ^nC_k\times Q(k),$ then,
-$
-Q(n)=\sum_{k=0}^{n} (-1)^{\,n-k}\times ^nC_k\times P(k).
-$
+- If $P(n)=\sum_{k=0}^{n} \binom{n}{k} Q(k)$, then $Q(n)=\sum_{k=0}^{n} (-1)^{n-k} \binom{n}{k} P(k)$
 
-- If $P(n)=\sum_{k=0}^{n} (-1)^k \times ^nC_k \times Q(k)$ then,
-$Q(n)=\sum_{k=0}^{n} (-1)^k \times ^nC_k\times P(k)$
+- If $P(n)=\sum_{k=0}^{n} (-1)^k \binom{n}{k} Q(k)$, then $Q(n)=\sum_{k=0}^{n} (-1)^k \binom{n}{k} P(k)$
 
-- If $ f(n)=\sum_{d\mid n} g(d)$ then $g(n)=\sum_{d\mid n} \mu(d)\, f\!\left(\frac{n}{d}\right)$
+- If $f(n)=\sum_{d \mid n} g(d)$, then $g(n)=\sum_{d \mid n} \mu(d)\, f\!\left(\dfrac{n}{d}\right)$
 
-## LTE
+## LTE (Lifting the Exponent)
 
-- \textbf{LTE Basic Form (odd p): } $v_p(x^n - y^n) = v_p(x-y) + v_p(n)$, where $p \mid (x-y)$ and $p \  $ doesn't divide $ xy$ and $p$ is odd.
+- **LTE Basic Form (odd p):** $v_p(x^n - y^n) = v_p(x-y) + v_p(n)$, where $p \mid (x-y)$, $p \nmid xy$, and $p$ is odd.
 
-- \textbf{LTE for sum when p divides x+y: } $v_p(x^n + y^n) = v_p(x+y) + v_p(n)$, where $n$ is odd, $p \mid (x+y)$, $p$ doesn't divide $xy$, and $p$ is odd.
+- **LTE for sum when p divides x+y:** $v_p(x^n + y^n) = v_p(x+y) + v_p(n)$, where $n$ is odd, $p \mid (x+y)$, $p \nmid xy$, and $p$ is odd.
 
-- \textbf{LTE for p=2, odd difference: } $v_2(x^n - y^n) = v_2(x-y) + v_2(x+y) + v_2(n) - 1$, where $x$ and $y$ are odd.
+- **LTE for p=2, odd difference:** $v_2(x^n - y^n) = v_2(x-y) + v_2(x+y) + v_2(n) - 1$, where $x$ and $y$ are odd.
 
-- $\textbf{LTE for p=2, sum case: } v_2(x^n + y^n) = v_2(x+y) + v_2(n)$, where $x$ and $y$ are odd and $n$ is odd.
+- **LTE for p=2, sum case:** $v_2(x^n + y^n) = v_2(x+y) + v_2(n)$, where $x$ and $y$ are odd and $n$ is odd.
 
-- $\textbf{LTE for x=y+k: } v_p((y+k)^n - y^n) = v_p(k) + v_p(n)$, if $p \mid k$ and $p $ doesn't divide $ y$.
+- **LTE for x=y+k:** $v_p((y+k)^n - y^n) = v_p(k) + v_p(n)$, if $p \mid k$ and $p \nmid y$.
 
-- $\textbf{Consequence (special): } v_p(a^p - b^p) = v_p(a-b) + 1$, for odd prime $p$ dividing $a-b$.
+- **Consequence (special):** $v_p(a^p - b^p) = v_p(a-b) + 1$, for odd prime $p$ dividing $a-b$.
 
-- $\textbf{Consequence (power): } v_p(x^{p^k} - y^{p^k}) = v_p(x-y) + k$, for odd prime $p$ dividing $x-y$.
-
+- **Consequence (power):** $v_p(x^{p^k} - y^{p^k}) = v_p(x-y) + k$, for odd prime $p$ dividing $x-y$.
